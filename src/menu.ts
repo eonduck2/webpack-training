@@ -1,12 +1,12 @@
 const root = document.getElementById(`root`) as HTMLElement;
 
 const liTags = () => {
-  let result = "";
+  let result = "<li>목록</li>";
   return result;
 };
 
 root.innerHTML = `
 <ul>
-<li>테스트</li>
+${liTags()}
 </ul>
 `;
