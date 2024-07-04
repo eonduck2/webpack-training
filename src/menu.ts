@@ -27,7 +27,6 @@ const basicData: TBasicData = {
 
 const totalElement = (obj: TBasicData): string => {
   let result = "";
-  // liTags(anchorTags(`#${obj.hi}`, obj.hi));
   for (let key in obj) {
     result += liTags(anchorTags(`#${key}`, obj[key]));
   }
@@ -41,3 +40,7 @@ if (root instanceof HTMLElement) {
 </ul>
 `;
 }
+
+/* IMPORTANT------------------------------------------------------------------------------
+  NOTE: HTML을 대신해서 만든 HTML 작성 코드 - REACT/CSR
+*/
