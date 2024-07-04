@@ -9,4 +9,20 @@ var liTags = function liTags(children) {
   var result = "<li>".concat(children, "</li>");
   return result;
 };
-root.innerHTML = "\n<ul>\n  ".concat(liTags(anchorTags("#testA", "\u314E\u3147")), "\n</ul>\n");
+var basicData = {
+  hi: "\u314E\u3147",
+  bye: "\u3142\u3147",
+  hello: "\uC548\uB155",
+  goodbye: "\uC798\uAC00"
+};
+var totalElement = function totalElement(obj) {
+  var result = "";
+  // liTags(anchorTags(`#${obj.hi}`, obj.hi));
+  for (var _key in obj) {
+    result += liTags(anchorTags("#".concat(_key), obj[_key]));
+  }
+  return result;
+};
+if (root instanceof HTMLElement) {
+  root.innerHTML = "\n<ul>\n  ".concat(totalElement(basicData), "\n</ul>\n");
+}

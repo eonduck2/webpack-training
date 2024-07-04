@@ -15,6 +15,7 @@ type TBasicData = {
   bye: `ㅂㅇ`;
   hello: `안녕`;
   goodbye: `잘가`;
+  [key: string]: string;
 };
 
 const basicData: TBasicData = {
@@ -25,7 +26,11 @@ const basicData: TBasicData = {
 };
 
 const totalElement = (obj: TBasicData): string => {
-  let result = liTags(anchorTags(`#${obj.hi}`, obj.hi));
+  let result = "";
+  // liTags(anchorTags(`#${obj.hi}`, obj.hi));
+  for (let key in obj) {
+    result += liTags(anchorTags(`#${key}`, obj[key]));
+  }
   return result;
 };
 
