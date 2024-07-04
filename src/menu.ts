@@ -1,4 +1,4 @@
-const root = document.getElementById("root")!;
+const root = document.getElementById("root");
 
 const anchorTags = (href: string, textNode: string): string => {
   let result = `<a href="${href}">${textNode}</a>`;
@@ -10,8 +10,29 @@ const liTags = (children: string) => {
   return result;
 };
 
-root.innerHTML = `
+type TBasicData = {
+  hi: `ㅎㅇ`;
+  bye: `ㅂㅇ`;
+  hello: `안녕`;
+  goodbye: `잘가`;
+};
+
+const basicData: TBasicData = {
+  hi: `ㅎㅇ`,
+  bye: `ㅂㅇ`,
+  hello: `안녕`,
+  goodbye: `잘가`,
+};
+
+const totalElement = (obj: TBasicData): string => {
+  let result = liTags(anchorTags(`#${obj.hi}`, obj.hi));
+  return result;
+};
+
+if (root instanceof HTMLElement) {
+  root.innerHTML = `
 <ul>
-  ${liTags(anchorTags(`#testA`, `ㅎㅇ`))}
+  ${totalElement(basicData)}
 </ul>
 `;
+}
